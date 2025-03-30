@@ -1,4 +1,3 @@
--- Werrrrolo's Eventreciever script fe bypass ( possibly patched ;m; )
 local function rbxassetload()
 	local Players = game:GetService("Players")
 	local RunService = game:GetService("RunService")
