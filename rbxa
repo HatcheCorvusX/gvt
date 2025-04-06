@@ -1,171 +1,43 @@
-local function rbxassetload()
-	local Players = game:GetService("Players")
-	local RunService = game:GetService("RunService")
-
-	local function modifyy(character)
-
-		if not character then return end
-		local humanoid = character:FindFirstChildOfClass("Humanoid")
-		if not humanoid then return end
-
-		local bodyColors = character:FindFirstChild("Body Colors")
-		if bodyColors then
-			bodyColors.HeadColor3 = Color3.fromRGB(255, 0, 0)
-			bodyColors.LeftArmColor3 = Color3.fromRGB(0, 255, 0)
-			bodyColors.RightArmColor3 = Color3.fromRGB(0, 255, 0)
-			bodyColors.LeftLegColor3 = Color3.fromRGB(0, 0, 255)
-			bodyColors.RightLegColor3 = Color3.fromRGB(0, 0, 255)
-			bodyColors.TorsoColor3 = Color3.fromRGB(255, 255, 0)
-		end
-
-		local function meshy(part) --meshing around aha aha.... -_-
-			if part:IsA("MeshPart") then
-				part.MeshId = "rbxassetid://2720161649" 
-			end
-		end
-
-		meshy(character:FindFirstChild("LeftUpperArm"))
-		meshy(character:FindFirstChild("LeftLowerArm"))
-		meshy(character:FindFirstChild("RightUpperArm"))
-		meshy(character:FindFirstChild("RightLowerArm"))
-		meshy(character:FindFirstChild("LeftUpperLeg"))
-		meshy(character:FindFirstChild("LeftLowerLeg"))
-		meshy(character:FindFirstChild("RightUpperLeg"))
-		meshy(character:FindFirstChild("RightLowerLeg"))
-
-		local head = character:FindFirstChild("Head")
-		if head then
-			local bobbing = true
-			local angle = 0
-			local amplitude = 5 -- degreez
-			local frequency = 2 -- the speed
-
-			RunService.Heartbeat:Connect(function(deltaTime)
-				if bobbing then
-					angle = angle + frequency * deltaTime
-					local offset = math.sin(angle) * amplitude
-					head.CFrame = head.CFrame * CFrame.Angles(0, math.rad(offset), 0)
-				end
-			end)
-		end
+-- Werrrrolo's Fe bypass test part 2
+local function force() 
+	_force_insert=function(id,place)
+	starter = game:GetService("StarterPlayer")
+	place=place or
+	Instance.new('Model',starter.StarterCharacterScripts);
+		local c=game:GetObjects('rbxassetid://'..id);
+		for i=1,#c do
+			c[i].Parent=place;
+		end;
+	end;
+	_force_insert(108955943);
 	end
-
-	Players.PlayerAdded:Connect(function(player)
-		player.CharacterAdded:Connect(function(character)
-			modifyy(character)
-		end)
-	end)
-
-	for _, player in ipairs(Players:GetPlayers()) do
-		if player.Character then
-			modifyy(player.Character)
-		end
-	end
-
-end
-local function GetPlayerCount()
-	local playerService = game:GetService('Players')
-	return #playerService:GetChildren()
-end
-
-local function PrintAllPlayers()
-	print("There is/are currently " .. GetPlayerCount() .. " player/s:")
-	for i, v in next, game:GetService('Players'):GetPlayers() do
-		print(v.Name)
-	end
-end
-
 local function ClearConsole()
-	local getDevConsole = pcall(function()
-		local devConsole = game.CoreGui.RobloxGui.DeveloperConsole
-	end)
-	local devConsole = game.CoreGui.RobloxGui.DeveloperConsole
-	--hidden services
-	local core = game:GetService("CoreGui")
-	game.core.ViewSelectorScreenGui.Panel.Viewport.ChildAdded:connect(function(EventReceiver,rbxassetload)
-		coroutine.resume(coroutine.create(function()
-			game:GetService("RunService").Stepped:connect(function()
-				if type(EventReceiver)~=nil then
-					coroutine.resume(coroutine.create(function()
-						EventReceiver.Enabled()
-					end))
-				end
-			end)
-		end))
-	end)
-
-	local CoreScriptOne = game:GetService("CoreGui")
+end
 	local CoreScriptTwo = game:GetService("CoreGui")
+	local CoreScriptOne = game:GetService("CoreGui")
+	Instance.new(CoreScriptOne.ViewSelectorScreenGui.Panel.Viewport)
+	task.wait(19)
+	CoreScriptOne.ViewSelectorScreenGui.Panel.Viewport:ClearAllChildren()
+	CoreScriptOne.ViewSelectorScreenGui.Panel.Viewport:connect(function(force)
+		
+	end)
 
-	if getDevConsole then
-		devConsole:ClearAllChildren()
-	end
-	if CoreScriptOne.ViewSelectorScreenGui.Panel.Viewport then
-		CoreScriptOne.ViewSelectorScreenGui.Panel.Viewport:ClearAllChildren()
-		if CoreScriptTwo.ViewSelectorScreenGui.Panel.Viewport.EventReceiver then
-			CoreScriptTwo.ViewSelectorScreenGui.Panel.Viewport.EventReceiver:ClearAllChildren()
-		end
-	end
-end
-local core = game:GetService("CoreGui")
-core.ViewSelectorScreenGui.Panel.Viewport.EventReceiver.ChildAdded:connect(function(EventReceiver,rbxassetload)
-	coroutine.resume(coroutine.create(function()
-		game:GetService("RunService").Stepped:connect(function()
-			if type(EventReceiver)~=nil then
-				coroutine.resume(coroutine.create(function()
-					EventReceiver.Enabled()
-				end))
-			end
-		end)
-	end))
-end)
+		CoreScriptTwo.ViewSelectorScreenGui.Panel.Viewport.EventReceiver:ClearAllChildren()
+		Instance.new(CoreScriptOne.ViewSelectorScreenGui.Panel.Viewport.ChiladAdded:connect(function(force)
+			
+		end))
+			coroutine.resume(coroutine.create(function()
+				game:GetService("RunService").Stepped:connect(function()
+					
+				end)
+				if type(CoreScriptOne.ViewSelectorScreenGui)~=nil then
+					
+				end
+						coroutine.resume(coroutine.create(function() end))
+						
 
-local core = game:GetService("CoreGui")
-game.core.ViewSelectorScreenGui.Panel.Viewport.EventReceiver:connect(function(EventReceiver,rbxassetload)
-	coroutine.resume(coroutine.create(function()
-		game:GetService("RunService").Stepped:connect(function()
-			if type(EventReceiver)~=nil then
-				coroutine.resume(coroutine.create(function()
-					EventReceiver.Enabled()
-				end))
-			end
-		end)
-	end))
-end)
-local core = game:GetService("CoreGui")
-game.core.ViewSelectorScreenGui.Panel.Viewport.EventReceiver.ChildAdded:connect(function(EventReceiver,rbxassetload)
-	coroutine.resume(coroutine.create(function()
-		game:GetService("RunService").Stepped:connect(function()
-			if type(EventReceiver)~=nil then
-				coroutine.resume(coroutine.create(function()
-					EventReceiver.Enabled()
-				end))
-			end
-		end)
-	end))
-end)
 
-local core = game:GetService("CoreGui")
-core.ViewSelectorScreenGui.Panel.Viewport.EventReceiver:connect(function(EventReceiver,rbxassetload)
-	coroutine.resume(coroutine.create(function()
-		game:GetService("RunService").Stepped:connect(function()
-			if type(EventReceiver)~=nil then
-				coroutine.resume(coroutine.create(function()
-					EventReceiver.Enabled()
-				end))
-			end
-		end)
-	end))
-end)
-
-local function DisplayServerInfo()
-	rbxassetload()
+end)) local function DisplayServerInfo()
 	ClearConsole()
-	PrintAllPlayers()
 end
 
-local function DisplayServerInfo()
-	rbxassetload()
-	ClearConsole()
-	PrintAllPlayers()
-end
